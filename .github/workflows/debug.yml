@@ -19,6 +19,10 @@ jobs:
           - ocaml-base-compiler.4.14.1
           
     steps:
+      - name: List Installed Brew Packages
+        run: brew list
+        if: runner.os == 'macOS'
+
       - name: Install system dependencies (Linux)
         run: sudo apt update && sudo apt-get install libev-dev libonig-dev libcurl4-openssl-dev
         if: runner.os == 'Linux'
